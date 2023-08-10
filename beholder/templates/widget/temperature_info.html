@@ -1,0 +1,40 @@
+<div class="card bg-secondary ">
+    <div class="card-header">Temperature </div>
+    <ul class="list-group list-group-flush">
+        {% for sensor, sensor_readings in summaries["temperature_info"].items() %}
+            {% for reading in sensor_readings %}
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col">
+                            {%- if reading["sensor_label"] != "" -%}
+                            {%-     set sensor_label = "(" + reading["sensor_label"] + ")" -%}
+                            {%- else -%}
+                            {%-     set sensor_label = "" -%}
+                            {%- endif -%}
+                            <span class="text-info">{{ sensor }}</span>
+                            <small>{{ sensor_label }}</small><br/>
+                            {% if reading["low_band"] > 0 %}
+                                <span class="badge bg-success">{{ "%0.1f" % reading["low_band"]|float }} {{ reading["scale"] }}</span>&nbsp;
+                                <span class="badge bg-warning">{{ "%0.1f" % reading["medium_band"]|float }} {{ reading["scale"] }}</span>&nbsp;
+                                <span class="badge bg-danger">{{ "%0.1f" % reading["high_band"]|float }} {{ reading["scale"] }}</span>
+                            {% else %}
+                                <span class="badge bg-dark">No bands available.</span>
+                            {% endif%}
+                        </div>
+                        {%- set text_color = "" -%}
+                        {%- if reading["low_band"] > 0 and reading["temperature"] <= reading["low_band"] -%}
+                        {%-     set text_color = "text-success" -%}
+                        {%- elif reading["low_band"] > 0 and reading["temperature"] > reading["low_band"] and reading["temperature"] <= reading["medium_band"] -%}
+                        {%-     set text_color = "text-warning" -%}
+                        {%- elif reading["low_band"] > 0 and reading["temperature"] > reading["medium_band"] -%}
+                        {%-     set text_color = "text-danger" -%}
+                        {%- endif -%}
+                        <div class="col text-end {{ text_color }}">
+                            {{ reading["temperature"] }} {{ reading["scale"] }}
+                       </div>
+                    </div>
+                </li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</div>

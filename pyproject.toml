@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "beholder"
+version = "0.1.0"
+description = "Tiny and simple system statistics monitor for SBCs."
+authors = ["Andre Silva <andre.luis.silva@protonmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "^2.3.2"
+psutil = "^5.9.5"
+tzlocal = "^5.0.1"
+waitress = "^2.1.2"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+pytest = "^7.4.0"
+pylint = "^2.17.5"
+pytest-sugar = "^0.9.7"
+pytest-icdiff = "^0.6"
+assertpy = "^1.1"
+coverage = "^7.2.7"
+pytest-randomly = "^3.13.0"
+taskipy = "^1.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+beholder = { cmd = "flask --debug --app beholder/__main__.py run", help = "run the project in development mode." }
+test = { cmd = "coverage run --source=beholder -m pytest tests/ && coverage html --directory coverage/", help = "run all unit tests and generate the coverage report at '/coverage'." }
+format-source = { cmd = "black --line-length 120 beholder", help = "execute black to proper format the source code under '/beholder'." }
+format-tests = { cmd = "black --line-length 120 tests", help = "execute black to proper format the source code under '/tests'." }
+format = { cmd = "task format-source && task format-tests", help = "execute black to proper format all the python code in the project." }
+check = { cmd = "flake8 --format=html --htmldir=lint ./beholder ./tests", help = "execute flake8 against '/beholder' and '/tests'. All violations are reported on '/lint'." }

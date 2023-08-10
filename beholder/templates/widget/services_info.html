@@ -1,0 +1,30 @@
+<div class="card bg-secondary ">
+    <div class="card-header">Services </div>
+    {% if summaries["services_info"]|length == 0 %}
+        <div class="card-body text-center align-middle">
+            <h3 class="mt-5 mb-5">No service in the services watch list.</h3>
+        </div>
+    {% else %}
+        <ul class="list-group list-group-flush">
+            {% for service, status in summaries["services_info"].items() %}
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col">
+                            {{ service }}
+                        </div>
+                        {%- if status -%}
+                        {%-     set text_color = "bg-success" -%}
+                        {%-     set status_text = "Active" -%}
+                        {%- else -%}
+                        {%-     set text_color = "bg-danger" -%}
+                        {%-     set status_text = "Inactive" -%}
+                        {%- endif -%}
+                        <div class="col text-end">
+                            <span class="badge {{ text_color }}">{{ status_text }}</span>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>

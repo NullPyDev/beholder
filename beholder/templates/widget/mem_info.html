@@ -1,0 +1,33 @@
+<div class="card bg-secondary ">
+    <div class="card-header">Memory </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            Physical Memory<br/>
+            {%- if summaries["mem_info"]["physical_memory"]["pct_used"] <= 50 -%}
+            {%-    set bar_color = "bg-success" -%}
+            {%- elif summaries["mem_info"]["physical_memory"]["pct_used"] > 50 and summaries["mem_info"]["physical_memory"]["pct_used"] <= 75 -%}
+            {%-    set bar_color = "bg-warning" -%}
+            {%- else -%}
+            {%-    set bar_color = "bg-danger" -%}
+            {%- endif -%}
+            <div class="progress" role="progressbar" aria-label="Physical memory usage." aria-valuenow="{{ summaries['mem_info']['physical_memory']['pct_used'] }}" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-striped progress-bar-animated {{ bar_color }}" style="width: {{ summaries['mem_info']['physical_memory']['pct_used'] }}%">{{ summaries['mem_info']['physical_memory']['pct_used'] }}</div>
+            </div>
+            <small>{{ summaries["mem_info"]["physical_memory"]["total_available"] }} available.</small>
+        </li>
+        <li class="list-group-item">
+            SWAP Memory<br/>
+            {%- if summaries["mem_info"]["swap_memory"]["pct_used"] <= 50 -%}
+            {%-    set bar_color = "bg-success" -%}
+            {%- elif summaries["mem_info"]["swap_memory"]["pct_used"] > 50 and summaries["mem_info"]["swap_memory"]["pct_used"] <= 75 -%}
+            {%-    set bar_color = "bg-warning" -%}
+            {%- else -%}
+            {%-    set bar_color = "bg-danger" -%}
+            {%- endif -%}
+            <div class="progress" role="progressbar" aria-label="Swap memory usage." aria-valuenow="{{ summaries['mem_info']['swap_memory']['pct_used'] }}" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-striped progress-bar-animated {{ bar_color }}" style="width: {{ summaries['mem_info']['swap_memory']['pct_used'] }}%">{{ summaries['mem_info']['swap_memory']['pct_used'] }}</div>
+            </div>
+            <small>{{ summaries["mem_info"]["swap_memory"]["total_available"] }} available.</small>
+        </li>
+    </ul>
+</div>

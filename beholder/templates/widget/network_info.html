@@ -1,0 +1,36 @@
+<div class="card bg-secondary ">
+    <div class="card-header">Network </div>
+    <ul class="list-group list-group-flush">
+        {% for interface, details in summaries["network_info"].items() %}
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        <strong class="text-info">{{ interface }}</strong><br/><br/>
+                        <small>
+                            {% for address in details["addresses"] %}
+                                {%- if address["address_type"] == "AF_INET6" -%}
+                                {%-     set address_type = "IPv6" -%}
+                                {%- elif address["address_type"] == "AF_PACKET" -%}
+                                {%-     set address_type = "MAC" -%}
+                                {%- else -%}
+                                {%-     set address_type = "IP" -%}
+                                {%- endif -%}
+                                {{ address_type }}: {{ address["address"] }}<br/>
+                            {% endfor %}
+                        </small>
+                    </div>
+                    {%- if details["active"] -%}
+                    {%-     set text_color = "bg-success" -%}
+                    {%-     set status = "Active" -%}
+                    {%- else -%}
+                    {%-     set text_color = "bg-danger" -%}
+                    {%-     set status = "Inactive" -%}
+                    {%- endif -%}
+                    <div class="col text-end">
+                        <span class="badge {{text_color}}">{{ status }}</span>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

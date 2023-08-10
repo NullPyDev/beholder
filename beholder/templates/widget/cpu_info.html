@@ -1,0 +1,45 @@
+<div class="card bg-secondary ">
+    <div class="card-header">CPU </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">Physical Cores</div>
+                <div class="col">{{ summaries["cpu_info"]["physical_cores"] }}</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">Total Cores</div>
+                <div class="col">{{ summaries["cpu_info"]["total_cores"] }}</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">Max Frequency</div>
+                <div class="col">{{ summaries["cpu_info"]["max_frequency"] }}</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">Current Frequency</div>
+                <div class="col">
+                    {{ summaries["cpu_info"]["current_frequency"] }}&nbsp;
+                    <small class="fw-lighter">- {{ "%0.f" % summaries["cpu_info"]["pct_current_frequency"]|float }}%</small>
+                </div>
+            </div>
+        </li>
+         <li class="list-group-item">
+             Current Load<br/>
+             {%- if summaries["cpu_info"]["total_load"] <= 50 -%}
+             {%-    set bar_color = "bg-success" -%}
+             {%- elif summaries["cpu_info"]["total_load"] > 50 and summaries["cpu_info"]["total_load"] <= 75 -%}
+             {%-    set bar_color = "bg-warning" -%}
+             {%- else -%}
+             {%-    set bar_color = "bg-danger" -%}
+             {%- endif -%}
+             <div class="progress" role="progressbar" aria-label="CPU Load" aria-valuenow="{{ summaries['cpu_info']['total_load'] }}" aria-valuemin="0" aria-valuemax="100">
+                 <div class="progress-bar progress-bar-striped progress-bar-animated {{ bar_color }}" style="width: {{ summaries['cpu_info']['total_load'] }}%">{{ summaries['cpu_info']['total_load'] }} %</div>
+             </div>
+        </li>
+    </ul>
+</div>

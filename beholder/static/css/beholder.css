@@ -1,0 +1,28 @@
+@import url("/static/css/bootstrap.dark.min.css");
+@import url("/static/css/bootstrap.light.min.css");
+
+@media (prefers-color-scheme: dark) {
+    .navbar-brand {
+        color: #fff !important;
+    }
+
+    .navbar-text {
+        color: #c9c9c9 !important;
+    }
+
+    .card {
+        border-radius: 7px !important;
+    }
+}
+
+.content {
+    padding-top: 50px;
+}
+
+.navbar {
+    border: none !important;
+}
+
+.navbar-brand {
+    border: none !important;
+}

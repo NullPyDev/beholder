@@ -1,0 +1,25 @@
+[flake8]
+
+max-line-length=120
+
+color=auto
+
+count=True
+
+statistics=True
+
+exclude=
+	# Ignoring git repository.
+	.git,
+
+	# Ignoring pycache.
+	__pycache__,
+
+	# Ignoring IntelliJ idea settings.
+	.idea,
+
+	# Ignoring integration tests.
+	features,
+
+	# Ignoring fixtures.
+	tests/fixtures

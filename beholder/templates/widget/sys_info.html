@@ -1,0 +1,59 @@
+<div class="card bg-secondary ">
+    <div class="card-header">Node </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">Host</div>
+                <div class="col">{{ summaries["sys_info"]["host_name"] }}</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">OS</div>
+                <div class="col">{{ summaries["sys_info"]["system"] }}</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">Kernel Version</div>
+                <div class="col">{{ summaries["sys_info"]["release"] }}</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">Architecture</div>
+                <div class="col">{{ summaries["sys_info"]["architecture"] }}</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">Locale</div>
+                <div class="col">{{ summaries["sys_info"]["locale"] }}</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">Encoding</div>
+                <div class="col">{{ summaries["sys_info"]["encoding"] }}</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">Timezone</div>
+                <div class="col">{{ summaries["sys_info"]["time_zone"] }}</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">Current System Time</div>
+                <div class="col">{{ summaries["sys_info"]["current_time"] }}</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">Up Time</div>
+                <div class="col">{{ summaries["sys_info"]["up_time"] }}</div>
+            </div>
+        </li>
+    </ul>
+</div>

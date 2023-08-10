@@ -1,0 +1,21 @@
+<div class="card bg-secondary ">
+    <div class="card-header">Storage </div>
+    <ul class="list-group list-group-flush">
+        {% for device, summary in summaries["storage_info"].items() %}
+            <li class="list-group-item">
+                <span class="text-info">{{ device }}</span> - <small class="fw-lighter">{{ summary["total_size"] }}</small><br/>
+                {%- if summary["pct_used"] <= 50 -%}
+                {%-    set bar_color = "bg-success" -%}
+                {%- elif summary["pct_used"] > 50 and summary["pct_used"] <= 75 -%}
+                {%-    set bar_color = "bg-warning" -%}
+                {%- else -%}
+                {%-    set bar_color = "bg-danger" -%}
+                {%- endif -%}
+                <div class="progress" role="progressbar" aria-label="{{ device }} usage" aria-valuenow="{{ summary['pct_used'] }}" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated {{ bar_color }}" style="width: {{ summary['pct_used'] }}%">{{ summary['pct_used'] }} %</div>
+                </div>
+                <small>{{ summary["total_free"] }} free space.</small>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

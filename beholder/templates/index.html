@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="color-scheme" content="dark light">
+        <title>Beholder Monitor Dashboard</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/beholder.css') }}" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">Beholder</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav me-auto">
+                    </ul>
+                    <span class="navbar-text">
+                        Version {{ summaries["sys_info"]["beholder_version"] }}
+                    </span>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container content">
+            <div id="dashboard" class="row" data-masonry='{"itemSelector": ".widget", "percentPosition": true }'>
+                {% include "dashboard.html" %}
+            </div>
+        </div>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/masonry.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/beholder.js') }}"></script>
+    </body>
+</html>
