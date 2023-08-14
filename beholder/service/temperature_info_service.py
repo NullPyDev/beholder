@@ -44,7 +44,7 @@ class TemperatureInfoService(InfoService):
                 high = 0.0
 
                 # Workaround for some sensor with wrong temperature values for high.
-                if temperature.high:
+                if temperature.high and self.__temp_scale == "C":
                     if temperature.high > 1_000:
                         high = temperature.high / 1_000
                     elif temperature.high > 100:
