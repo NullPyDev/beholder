@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/beholder.css') }}" />
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar fixed-top navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="#">Beholder</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,6 +29,14 @@
                 {% include "dashboard.html" %}
             </div>
         </div>
+
+        <footer class="text-center text-lg-start">
+            <div class="text-center p-2 text-muted">
+                (c) 2023 - NullPy - Distributed under <a href="https://raw.githubusercontent.com/NullPyDev/beholder/main/LICENSE" title="Link to MIT License">MIT License</a><br/>
+                For more details visit <a href="https://github.com/NullPyDev/beholder" title="Link to our GitHUB repository.">GitHub Beholder Repository</a>
+            </div>
+        </footer>
+
 
         <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/masonry.min.js') }}"></script>
