@@ -202,7 +202,7 @@ we can:
 If you want to collaborate, just fork the project locally, do the changes and open a pull request that I will review as
 soon as possible.
 
-If find any bug or have any question, please, used the (Issues)[https://github.com/NullPyDev/beholder/issues] in this
+If you found any bug or have any questions, please, use the [Issues](https://github.com/NullPyDev/beholder/issues) in this
 repository.
 
 If you want to support me to keep maintaining this project, consider to pay me a coffee using the following button:
