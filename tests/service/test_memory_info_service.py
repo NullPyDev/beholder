@@ -32,3 +32,11 @@ class TestMemoryInfoService(unittest.TestCase):
     def test_swapMemoryPctUsedIsAvailable(self):
         assert_that(self.result["swap_memory"]).contains("pct_used")
         assert_that(self.result["swap_memory"]["pct_used"]).is_greater_than(0.0)
+
+    def test_physicalMemoryTotalFreeIsAvailable(self):
+        assert_that(self.result["physical_memory"]).contains("total_free")
+        assert_that(self.result["physical_memory"]["total_free"]).matches("[0-9\\.]*?B")
+
+    def test_swapMemoryTotalFreeIsAvailable(self):
+        assert_that(self.result["swap_memory"]).contains("total_free")
+        assert_that(self.result["swap_memory"]["total_free"]).matches("[0-9\\.]*?B")

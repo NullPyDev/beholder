@@ -8,7 +8,7 @@ def size_formatter(size, suffix="B") -> str:
     factor = 1_024
     for unit in ["", "K", "M", "G", "T"]:
         if size < factor:
-            return f"{size:.2f} {unit}{suffix}"
+            return f"{size:,.2f} {unit}{suffix}"
         size /= factor
 
 

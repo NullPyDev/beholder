@@ -38,7 +38,14 @@
              {%-    set bar_color = "bg-danger" -%}
              {%- endif -%}
              <div class="progress" role="progressbar" aria-label="CPU Load" aria-valuenow="{{ summaries['cpu_info']['total_load'] }}" aria-valuemin="0" aria-valuemax="100">
-                 <div class="progress-bar progress-bar-striped progress-bar-animated {{ bar_color }}" style="width: {{ summaries['cpu_info']['total_load'] }}%">{{ summaries['cpu_info']['total_load'] }} %</div>
+                 <div class="progress-bar progress-bar-striped progress-bar-animated {{ bar_color }}" style="width: {{ summaries['cpu_info']['total_load'] }}%">
+                     {% if summaries['cpu_info']['total_load'] >= 12 %}
+                        {{ summaries['cpu_info']['total_load'] }} %
+                     {% endif %}
+                 </div>
+                 {% if summaries[ 'cpu_info']['total_load'] < 12 %}
+                     &nbsp;{{ summaries['cpu_info']['total_load'] }} %
+                 {% endif %}
              </div>
         </li>
     </ul>

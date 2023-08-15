@@ -13,6 +13,11 @@
     .card {
         border-radius: 7px !important;
     }
+
+    .progress-bar {
+        color: #fff !important;
+        font-weight: bolder;
+    }
 }
 
 .content {
