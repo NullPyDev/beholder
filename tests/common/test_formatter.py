@@ -10,6 +10,10 @@ class TestSizeFormatter(unittest.TestCase):
         result: str = size_formatter(124)
         assert_that(result).is_equal_to("124.00 B")
 
+    def test_formatWithThousandSeparator(self):
+        result: str = size_formatter(1010)
+        assert_that(result).is_equal_to("1,010.00 B")
+
     def test_formatKiloBytes(self):
         result: str = size_formatter(2_560)
         assert_that(result).is_equal_to("2.50 KB")
@@ -28,6 +32,7 @@ class TestSizeFormatter(unittest.TestCase):
 
 
 class TestFrequencyFormatter(unittest.TestCase):
+
     def test_formatMegaHertz(self):
         result: str = frequency_formatter(200)
         assert_that(result).is_equal_to("200.00 Mhz")

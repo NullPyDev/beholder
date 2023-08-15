@@ -1,13 +1,23 @@
 [tool.poetry]
 name = "beholder"
-version = "0.1.0"
+version = "0.1.1"
 description = "Tiny and simple system statistics monitor for SBCs."
-authors = ["Andre Silva <andre.luis.silva@protonmail.com>"]
+authors = ["NullPy <contact.nullpy@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+keywords = ["system", "resources", "monitor", "web", "dashboard"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Topic :: Software Development :: Utilities :: System Monitor"
+]
+
+[project.urls]
+Homepage = "https://github.com/NullPyDev/beholder"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.8"
 flask = "^2.3.2"
 psutil = "^5.9.5"
 tzlocal = "^5.0.1"

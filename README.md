@@ -194,6 +194,7 @@ poetry build
 Although our intention is to keep this monitor as simple as possible, we plan to add the following features as soon as
 we can:
 
+* Support other service management systems like **runit** (soon).
 * Report of current running processes, including its CPU and memory usage.
 * Report with all the open ports and established connections, identified by process.
 * Report with all open files, identified by process.
@@ -211,6 +212,8 @@ If you want to support me to keep maintaining this project, consider to pay me a
         <img src="images/paypal_button.png" alt="Donate using PayPal." style="width: 40%; height: 40%"/>
     </a>
 </div>
+
+**Seriously, € 1,00 would help me a lot to keep supporting this and future projects**
 
 
 ## 5. License.

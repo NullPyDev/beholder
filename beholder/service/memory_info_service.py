@@ -32,3 +32,4 @@ class MemoryInfoService(InfoService):
     @staticmethod
     def update_pct_used_for_memory(memory_summary: dict[str, any], memory_info):
         memory_summary["pct_used"] = memory_info.percent
+        memory_summary["total_free"] = size_formatter(memory_info.free)
