@@ -3,7 +3,7 @@
 ## 1. Introduction.
 
 **Beholder** is a simple, minimalist and responsive dashboard with basic system information fully implemented in Python
-and intended to be used on low resource nodes (e.g.: single board computers) running any Linux distro using **systemd**.
+and intended to be used on low resource nodes (e.g.: single board computers) running any Linux distro.
 The highlighted features are:
 
 * Node basic information (hostname, kernel version, locale, timezone, up time, etc.)
@@ -194,7 +194,6 @@ poetry build
 Although our intention is to keep this monitor as simple as possible, we plan to add the following features as soon as
 we can:
 
-* Support other service management systems like **runit** (soon).
 * Report of current running processes, including its CPU and memory usage.
 * Report with all the open ports and established connections, identified by process.
 * Report with all open files, identified by process.

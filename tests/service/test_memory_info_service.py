@@ -6,7 +6,6 @@ from beholder.service.memory_info_service import MemoryInfoService
 
 
 class TestMemoryInfoService(unittest.TestCase):
-
     def setUp(self) -> None:
         self.service: MemoryInfoService = MemoryInfoService()
         self.result: dict[str, any] = self.service.get_info()
