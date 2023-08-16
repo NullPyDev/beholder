@@ -12,7 +12,6 @@ from beholder.service.system_info_service import SystemInfoService
 
 
 class TestSystemInfoService(unittest.TestCase):
-
     def setUp(self) -> None:
         self.service: SystemInfoService = SystemInfoService()
         self.result: dict[str, any] = self.service.get_info()
@@ -39,9 +38,7 @@ class TestSystemInfoService(unittest.TestCase):
 
     def test_bootTimeIsAvailable(self):
         assert_that(self.result).contains("boot_time")
-        assert_that(self.result["boot_time"]).is_equal_to(
-            datetime.fromtimestamp(psutil.boot_time())
-        )
+        assert_that(self.result["boot_time"]).is_equal_to(datetime.fromtimestamp(psutil.boot_time()))
 
     def test_localeIsAvailable(self):
         assert_that(self.result).contains("locale")

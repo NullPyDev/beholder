@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "beholder"
-version = "0.1.1"
+version = "0.1.2"
 description = "Tiny and simple system statistics monitor for SBCs."
 authors = ["NullPy <contact.nullpy@gmail.com>"]
 license = "MIT"

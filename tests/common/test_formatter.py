@@ -32,7 +32,6 @@ class TestSizeFormatter(unittest.TestCase):
 
 
 class TestFrequencyFormatter(unittest.TestCase):
-
     def test_formatMegaHertz(self):
         result: str = frequency_formatter(200)
         assert_that(result).is_equal_to("200.00 Mhz")

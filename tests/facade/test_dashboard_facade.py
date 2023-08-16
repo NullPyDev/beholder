@@ -6,7 +6,6 @@ from beholder.facade.dashboard_facade import DashboardFacade
 
 
 class TestDashboardFacade(unittest.TestCase):
-
     def setUp(self) -> None:
         self.facade: DashboardFacade = DashboardFacade()
         self.result: dict[str, any] = self.facade.load_summaries()
